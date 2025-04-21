@@ -7,5 +7,11 @@
     "webpack": "^5.99.6",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.1"
+  },
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack serve",
+    "sync": "git checkout gh-pages && git merge main --no-edit && npx webpack",
+    "deploy": "npm run sync && git add dist -f && git commit -m 'Deployment commit' && git subtree push --prefix dist origin gh-pages && git checkout main"
   }
 }
