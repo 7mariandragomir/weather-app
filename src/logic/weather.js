@@ -5,7 +5,6 @@ import { WeatherWidget } from "../components/WeatherWidget";
 async function fetchWeatherData() {
     try {
         const pos = await location.fetchLocation();
-        console.log(pos);
     
         const requestURL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${pos.coords.latitude},${pos.coords.longitude}?key=DNAB2EVQYZ2P9TMYXP3VEJDCD`;
         const response = await fetch(requestURL);
@@ -42,8 +41,6 @@ async function fetchCustomWeatherData(customLocation) {
             address: weatherData.resolvedAddress,
         }
 
-        console.log(weatherData);
-        
         return weatherObject;
     } catch(error) {
         console.error(error);
@@ -52,7 +49,7 @@ async function fetchCustomWeatherData(customLocation) {
 
 async function customLocationInput() {
     const locationInput = document.getElementById('custom-location');
-    console.log(locationInput);
+
     if (locationInput.value == null || locationInput.value.trim() == '') {
         alert('Custom location cannot be blank.')
     } else {

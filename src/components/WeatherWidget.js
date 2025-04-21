@@ -28,7 +28,7 @@ class WeatherWidget {
 
         const contentIcon = document.createElement('img');
         contentIcon.setAttribute('id', 'icon');
-        console.log(weatherObject.conditionsIcon);
+        
         (async () => {
             const module = await import(`../icons/${weatherObject.conditionsIcon}.svg`);
             if(module) {
