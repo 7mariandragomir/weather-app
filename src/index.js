@@ -10,5 +10,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Custom location 
 const locationBtn = document.getElementById('custom-location-btn');
-
-locationBtn.addEventListener('click', customLocationInput)
+locationBtn.addEventListener('click', customLocationInput);
+const locationInput = document.getElementById('custom-location');
+locationInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        customLocationInput();
+    }
+})
